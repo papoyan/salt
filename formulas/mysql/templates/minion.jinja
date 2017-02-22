@@ -1,0 +1,8 @@
+{% set mysql_user = salt['pillar.get']('salt:minion:mysql.user', 'root') %}
+{% set mysql_pass = salt['pillar.get']('salt:minion:mysql.pass', '') %}
+mysql.host: 'localhost'
+mysql.port: 3306
+mysql.user: {{ mysql_user }}
+mysql.pass: {{ mysql_pass }}
+mysql.db: 'mysql'
+mysql.charset: 'utf8'

@@ -1,0 +1,11 @@
+yum:
+  config:
+    exclude:
+      - salt*
+      - haproxy
+
+  cron:
+    apply_updates: 'no'
+    exclude:
+      - salt*
+      - haproxy

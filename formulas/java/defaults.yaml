@@ -1,0 +1,7 @@
+java:
+  oraclejdk:
+    version_name: jdk1.7.0_51
+    source: http://download.oracle.com/otn-pub/java/jdk/7u51-b13/jdk-7u51-linux-x64.tar.gz
+    prefix: /usr/share/java
+    add_to_env: True
+  extensions: {}

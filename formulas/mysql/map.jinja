@@ -1,0 +1,9 @@
+{% set mysql = salt['grains.filter_by']({
+    'RedHat': {
+        'package': 'mysql-server',
+        'package_devel': 'mysql-devel',
+        'service': 'mysqld',
+	'config': '/etc/my.cnf',
+	'python': 'MySQL-python',
+    },
+}, merge=salt['pillar.get']('mysql')) %}

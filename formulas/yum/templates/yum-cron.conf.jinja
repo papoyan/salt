@@ -1,0 +1,28 @@
+# This file is managed by Salt. Manual changes will be overwritten.
+{# This config file is for RHEL/CentOS 7 and above only.#}
+{% set config = salt['pillar.get']('yum:cron', {}) %}
+[commands]
+update_cmd = default
+update_messages = yes
+download_updates = yes
+apply_updates = {{config.get('apply_updates', 'no')}}
+random_sleep = 180
+
+[emitters]
+system_name = None
+emit_via = stdio
+ouput_width = 80
+
+[email]
+email_from = root@localhost
+email_to = root
+email_host = localhost
+
+[groups]
+group_list = None
+group_package_types = mandatory, default
+
+[base]
+debuglevel = -2
+mdpolicy = group:main
+exclude={{' '.join(config.get('exclude', []))}}

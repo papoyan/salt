@@ -1,0 +1,12 @@
+{% set apache = salt['grains.filter_by']({
+    'RedHat': {
+        'package': 'httpd',
+        'package_devel': 'httpd-devel',
+        'service': 'httpd',
+	'config': '/etc/httpd/conf/httpd.conf',
+	'config_dir': '/etc/httpd/conf.d',
+    },
+}, merge=salt['pillar.get']('apache:lookup')) %}
+
+{% set mod_jk = apache.get('mod_jk') %}
+{% set mod_security = apache.get('mod_security') %}

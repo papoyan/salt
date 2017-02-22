@@ -1,0 +1,13 @@
+apache:
+  lookup:
+    package: httpd
+    package_devel: httpd-devel
+    service: httpd
+    config: /etc/httpd/conf/httpd.conf
+    config_dir: /etc/httpd/conf.d
+
+    mod_jk:
+      source: https://example.com/software/apache/mod_jk-1.2.30-2.9.x86_64.rpm
+
+    mod_security:
+      source: https://example.com/software/apache/mod_security-2.6.8-6.el6.i686.rpm

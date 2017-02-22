@@ -1,0 +1,20 @@
+# This file is managed by Salt. Manual changes will be overwritten.
+{# This config file is for RHEL/CentOS 6 and below. #}
+{% set config = salt['pillar.get']('yum:cron', {}) %}
+{% set excludes = [] %}
+{%- for exclude in config.get('exclude', []) %}
+ {% do excludes.append('-x ' + exclude) %}
+{%- endfor %}
+YUM_PARAMETER="{{ ' '.join(excludes) }}"
+CHECK_ONLY=no
+CHECK_FIRST=no
+{# This must be inverted on RHEL 6 machines. On RHEL 7 machines, the logic is reverse. #}
+DOWNLOAD_ONLY={{ 'yes' if config.get('apply_updates', 'no') == 'no' else 'no' }}
+ERROR_LEVEL=0
+DEBUG_LEVEL=1
+RANDOMWAIT="60"
+MAILTO=root
+DAYS_OF_WEEK="0123456"
+CLEANDAY="0"
+SERVICE_WAITS=yes
+SERVICE_WAIT_TIME=300

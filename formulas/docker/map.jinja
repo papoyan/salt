@@ -1,0 +1,6 @@
+{% set docker = salt['grains.filter_by']({
+    'RedHat': {
+        'server': 'docker-io',
+        'service': 'docker',
+    },
+}, merge=salt['pillar.get']('docker:lookup')) %}

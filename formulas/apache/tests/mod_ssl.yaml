@@ -1,0 +1,11 @@
+package:
+  mod_ssl:
+    installed: true
+
+file:
+  /etc/httpd/conf.d/ssl.conf:
+    exists: true
+    mode: '0644'
+    owner: root
+    group: root
+    filetype: file

@@ -1,0 +1,9 @@
+{% set python3 = salt['grains.filter_by']({
+    'RedHat': {
+        'pkg': 'python34u',
+        'dev_pkg' : 'python34u-devel',
+        'pip_pkg' : 'python34u-pip',
+	'baseurl' : 'https://dl.iuscommunity.org/pub/ius/stable/Redhat/$releasever/$basearch',
+        'gpgkey'  : 'https://dl.iuscommunity.org/pub/ius/IUS-COMMUNITY-GPG-KEY',
+    },
+}, merge=salt['pillar.get']('python34:lookup')) %}

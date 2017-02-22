@@ -1,0 +1,23 @@
+java:
+  oraclejdk:
+    version_name: jdk1.8.0_31
+    source: http://download.oracle.com/otn-pub/java/jdk/8u31-b13/jdk-8u31-linux-x64.tar.gz
+    prefix: /usr/share/java
+  openjdk:
+    package: java-1.7.0-openjdk
+  extensions:
+    logback-core-1.1.3.jar:
+      source: http://artifactory-host/artifactory/group/id/version/logback-core-1.1.3.jar
+      source_hash: md5=301b3e826399248ffacbb7678edde61f
+    my-protocol.jar:
+      source: salt://jenkins/files/my-protocol.jar
+    common_system.jar:
+      type: 'artifactory'
+      artifactory_url: http://10.56.27.19/artifactory
+      repo: libs-release-clu-local
+      artifact: 'clu-common-legacy-system'
+      group: 'com.nuance'
+      packaging: 'jar'
+      version: 'latest'
+  jsvc:
+    rpm: http://SERVER/jakarta-commons-daemon-jsvc-1.0.15-1.i686.rpm

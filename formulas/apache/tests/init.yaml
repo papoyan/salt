@@ -1,0 +1,23 @@
+package:
+  httpd:
+    installed: true
+
+file:
+  /etc/httpd/conf.d/_placeholder.conf:
+    exists: true
+    mode: '0644'
+    size: 49
+    owner: root
+    group: root
+    filetype: file
+    contains: []
+
+service:
+  httpd:
+    enabled: true
+    running: true
+
+user:
+  apache:
+    exists: true
+    shell: /sbin/nologin

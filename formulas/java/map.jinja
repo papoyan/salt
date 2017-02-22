@@ -1,0 +1,7 @@
+{% import_yaml "java/defaults.yaml" as default_settings %}
+
+{% set java_pillar = salt['pillar.get']('java', default=default_settings.java, merge=True) %}
+
+{# Merge environment specific data #}
+{% set env = salt['grains.get']('env') %}
+{% set java = salt['pillar.get']('java:env:' + env, default=java_pillar, merge=True) %}

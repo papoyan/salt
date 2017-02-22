@@ -1,0 +1,11 @@
+package:
+  httpd-devel:
+    installed: true
+
+file:
+  /usr/sbin/apxs:
+    exists: true
+    mode: '0755'
+    owner: root
+    group: root
+    filetype: file
